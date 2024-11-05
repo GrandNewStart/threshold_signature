@@ -30,3 +30,9 @@
 *.exe
 *.out
 *.app
+
+# Ignore Visual Studio files
+.vs/
+*.user
+*.suo
+*.VC.db
