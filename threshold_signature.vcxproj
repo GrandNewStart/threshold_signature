@@ -144,6 +144,7 @@
     <ClCompile Include="signature.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="bignum.h" />
     <ClInclude Include="keygen.h" />
     <ClInclude Include="secretshare.h" />
     <ClInclude Include="signature.h" />

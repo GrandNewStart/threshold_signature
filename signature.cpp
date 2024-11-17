@@ -19,24 +19,6 @@ int generatePartialSignature(int share, const std::string& hash) {
     return partialSignature;
 }
 
-// Function to generate partial signatures from shares
-std::vector<int> generatePartialSignatures(const std::vector<std::pair<int, int>>& shares, const std::string& message) {
-    std::vector<int> partialSignatures;
-
-    // Hash the message
-    std::string hash = sha256(message);
-    std::cout << "Message Hash: " << hash << std::endl;
-
-    // Generate partial signature for each share
-    for (const auto& [x, share] : shares) {
-        int partialSignature = generatePartialSignature(share, hash);
-        partialSignatures.push_back(partialSignature);
-        std::cout << "Partial Signature from share (" << x << ", " << share << "): " << partialSignature << std::endl;
-    }
-
-    return partialSignatures;
-}
-
 // Function to calculate the Lagrange coefficient for a given x
 double lagrangeCoefficient(int x, const std::vector<int>& xValues) {
     double result = 1.0;
