@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35312.102
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "threshold_crypto_cuda", "threshold_crypto_cuda.vcxproj", "{B67C64AA-4B9F-4B66-ADB2-2950DCFE4BB0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B67C64AA-4B9F-4B66-ADB2-2950DCFE4BB0}.Debug|x64.ActiveCfg = Debug|x64
+		{B67C64AA-4B9F-4B66-ADB2-2950DCFE4BB0}.Debug|x64.Build.0 = Debug|x64
+		{B67C64AA-4B9F-4B66-ADB2-2950DCFE4BB0}.Release|x64.ActiveCfg = Release|x64
+		{B67C64AA-4B9F-4B66-ADB2-2950DCFE4BB0}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {77853B7A-997F-4CE6-AE3E-1A509046A3D4}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,71 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\jinwo\\Documents\\Visual Studio 2022\\threshold_crypto_cuda\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{B67C64AA-4B9F-4B66-ADB2-2950DCFE4BB0}|threshold_crypto_cuda.vcxproj|C:\\Users\\jinwo\\Documents\\Visual Studio 2022\\threshold_crypto_cuda\\threshold_crypto_cuda.cu||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{B67C64AA-4B9F-4B66-ADB2-2950DCFE4BB0}|threshold_crypto_cuda.vcxproj|solutionrelative:threshold_crypto_cuda.cu||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B67C64AA-4B9F-4B66-ADB2-2950DCFE4BB0}|threshold_crypto_cuda.vcxproj|C:\\Users\\jinwo\\Documents\\Visual Studio 2022\\threshold_crypto_cuda\\threshold_crypto.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{B67C64AA-4B9F-4B66-ADB2-2950DCFE4BB0}|threshold_crypto_cuda.vcxproj|solutionrelative:threshold_crypto.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B67C64AA-4B9F-4B66-ADB2-2950DCFE4BB0}|threshold_crypto_cuda.vcxproj|C:\\Users\\jinwo\\Documents\\Visual Studio 2022\\threshold_crypto_cuda\\kernel.cu||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{B67C64AA-4B9F-4B66-ADB2-2950DCFE4BB0}|threshold_crypto_cuda.vcxproj|solutionrelative:kernel.cu||{8B382828-6202-11D1-8870-0000F87579D2}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "threshold_crypto.cpp",
+              "DocumentMoniker": "C:\\Users\\jinwo\\Documents\\Visual Studio 2022\\threshold_crypto_cuda\\threshold_crypto.cpp",
+              "RelativeDocumentMoniker": "threshold_crypto.cpp",
+              "ToolTip": "C:\\Users\\jinwo\\Documents\\Visual Studio 2022\\threshold_crypto_cuda\\threshold_crypto.cpp",
+              "RelativeToolTip": "threshold_crypto.cpp",
+              "ViewState": "AgIAAJkAAAAAAAAAAAAxwK4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-11-29T05:20:45.54Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "threshold_crypto_cuda.cu",
+              "DocumentMoniker": "C:\\Users\\jinwo\\Documents\\Visual Studio 2022\\threshold_crypto_cuda\\threshold_crypto_cuda.cu",
+              "RelativeDocumentMoniker": "threshold_crypto_cuda.cu",
+              "ToolTip": "C:\\Users\\jinwo\\Documents\\Visual Studio 2022\\threshold_crypto_cuda\\threshold_crypto_cuda.cu",
+              "RelativeToolTip": "threshold_crypto_cuda.cu",
+              "ViewState": "AgIAACsAAAAAAAAAAAAiwEcAAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-11-29T05:22:24.519Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "kernel.cu",
+              "DocumentMoniker": "C:\\Users\\jinwo\\Documents\\Visual Studio 2022\\threshold_crypto_cuda\\kernel.cu",
+              "RelativeDocumentMoniker": "kernel.cu",
+              "ToolTip": "C:\\Users\\jinwo\\Documents\\Visual Studio 2022\\threshold_crypto_cuda\\kernel.cu",
+              "RelativeToolTip": "kernel.cu",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAI4AAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-11-28T15:44:33.379Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
