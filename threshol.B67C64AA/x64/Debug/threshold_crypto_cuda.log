@@ -1,6 +1,6 @@
-﻿  Compiling CUDA source file threshold_crypto_cuda.cu...
+﻿  Compiling CUDA source file kernel.cu...
   
-  C:\Users\jinwo\Documents\Visual Studio 2022\threshold_crypto_cuda>"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.6\bin\nvcc.exe" -gencode=arch=compute_52,code=\"sm_52,compute_52\" --use-local-env -ccbin "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\bin\HostX64\x64" -x cu   -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.6\include" -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.6\include"  -G   --keep-dir threshol.B67C64AA\x64\Debug  -maxrregcount=0   --machine 64 --compile -cudart static  -g  -DWIN32 -DWIN64 -D_DEBUG -D_CONSOLE -D_MBCS -Xcompiler "/EHsc /W3 /nologo /Od /FS /Zi /RTC1 /MDd " -Xcompiler "/Fdthreshol.B67C64AA\x64\Debug\vc143.pdb" -o "C:\Users\jinwo\Documents\Visual Studio 2022\threshold_crypto_cuda\threshol.B67C64AA\x64\Debug\threshold_crypto_cuda.cu.obj" "C:\Users\jinwo\Documents\Visual Studio 2022\threshold_crypto_cuda\threshold_crypto_cuda.cu" 
+  C:\Users\jinwo\Documents\Visual Studio 2022\threshold_crypto_cuda>"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.6\bin\nvcc.exe" -gencode=arch=compute_52,code=\"sm_52,compute_52\" --use-local-env -ccbin "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\bin\HostX64\x64" -x cu   -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.6\include" -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.6\include"  -G   --keep-dir threshol.B67C64AA\x64\Debug  -maxrregcount=0   --machine 64 --compile -cudart static  -g  -DWIN32 -DWIN64 -D_DEBUG -D_CONSOLE -D_MBCS -Xcompiler "/EHsc /W3 /nologo /Od /FS /Zi /RTC1 /MDd " -Xcompiler "/Fdthreshol.B67C64AA\x64\Debug\vc143.pdb" -o "C:\Users\jinwo\Documents\Visual Studio 2022\threshold_crypto_cuda\threshol.B67C64AA\x64\Debug\kernel.cu.obj" "C:\Users\jinwo\Documents\Visual Studio 2022\threshold_crypto_cuda\kernel.cu" 
 C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.6\include\driver_types.h(1334): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
 C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.6\include\driver_types.h(1334): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
 C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.6\include\driver_types.h(1334): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
@@ -33,12 +33,6 @@ C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.6\include\driver_types.h(
 C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.6\include\driver_types.h(1334): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
 C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.6\include\cuda_runtime_api.h(12392): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
 C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.6\include\cuda_runtime_api.h(12392): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-C:\Users\jinwo\Documents\Visual Studio 2022\threshold_crypto_cuda\threshold_crypto_cuda.cu(133): warning #186-D: pointless comparison of unsigned integer with zero
-        if (x1 < 0)
-               ^
-  
-  Remark: The warnings can be suppressed with "-diag-suppress <warning-number>"
-  
 C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.6\include\driver_types.h(1334): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
 C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.6\include\driver_types.h(1334): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
 C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.6\include\driver_types.h(1334): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
@@ -73,16 +67,10 @@ C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.6\include\cuda_runtime_ap
 C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.6\include\cuda_runtime_api.h(12392): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
 C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.6\include\cuda_runtime_api.h(12392): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
 C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.6\include\cuda_runtime_api.h(12392): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-C:\Users\jinwo\Documents\Visual Studio 2022\threshold_crypto_cuda\threshold_crypto_cuda.cu(133): warning #186-D: pointless comparison of unsigned integer with zero
-        if (x1 < 0)
-               ^
-  
-  Remark: The warnings can be suppressed with "-diag-suppress <warning-number>"
-  
-  threshold_crypto_cuda.cu
-  tmpxft_00003d14_00000000-7_threshold_crypto_cuda.cudafe1.cpp
+  kernel.cu
+  tmpxft_00005790_00000000-7_kernel.cudafe1.cpp
 C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.6\include\driver_types.h(1334): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
 C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.6\include\driver_types.h(1334): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
 C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.6\include\driver_types.h(1334): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-C:\Users\jinwo\Documents\Visual Studio 2022\threshold_crypto_cuda\threshold_crypto_cuda.cu(161): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  recon_key.cpp
   threshold_crypto_cuda.vcxproj -> C:\Users\jinwo\Documents\Visual Studio 2022\threshold_crypto_cuda\x64\Debug\threshold_crypto_cuda.exe

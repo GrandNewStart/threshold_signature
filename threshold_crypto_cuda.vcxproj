@@ -81,15 +81,25 @@
     </CudaCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <CudaCompile Include="gen_shares_cuda.cu" />
     <CudaCompile Include="kernel.cu" />
-    <CudaCompile Include="threshold_crypto_cuda.cu" />
+    <CudaCompile Include="recon_key_cuda.cu" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="threshold_crypto.h" />
-    <ClInclude Include="threshold_crypto_cuda.h" />
+    <ClInclude Include="gen_coef.h" />
+    <ClInclude Include="common.h" />
+    <ClInclude Include="gen_shares_cuda.h" />
+    <ClInclude Include="recon_key.h" />
+    <ClInclude Include="gen_shares.h" />
+    <ClInclude Include="gen_key.h" />
+    <ClInclude Include="recon_key_cuda.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="threshold_crypto.cpp" />
+    <ClCompile Include="gen_coef.cpp" />
+    <ClCompile Include="common.cpp" />
+    <ClCompile Include="recon_key.cpp" />
+    <ClCompile Include="gen_shares.cpp" />
+    <ClCompile Include="gen_key.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
