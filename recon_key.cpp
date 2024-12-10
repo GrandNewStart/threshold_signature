@@ -1,5 +1,7 @@
 #include "recon_key.h"
 
+#include <chrono>
+
 int modInverse_int(int a, int mod) {
     int m0 = mod, t, q;
     int x0 = 0, x1 = 1;
@@ -33,6 +35,9 @@ int modInverse_int(int a, int mod) {
 int reconstructKey_int(const std::vector<SHARE_INT>& shares, int mod) {
     int secret = 0; // Initialize the secret
 
+    // Record start time
+    auto start = std::chrono::high_resolution_clock::now();
+
     // Iterate over each share
     for (size_t i = 0; i < shares.size(); ++i) {
         int xi = shares[i].x;
@@ -62,6 +67,13 @@ int reconstructKey_int(const std::vector<SHARE_INT>& shares, int mod) {
         // Add current term to the secret: yi * L_i(0) mod p
         secret = (secret + yi * li % mod) % mod;
     }
+
+    // Record end time
+    auto end = std::chrono::high_resolution_clock::now();
+
+    // Estimate process time
+    std::chrono::duration<double, std::milli> duration = end - start;
+    std::cout << "[reconstructKey_int] " << duration.count() << " ms" << std::endl;
 
     return secret; // The reconstructed secret
 }

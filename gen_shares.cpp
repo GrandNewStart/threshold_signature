@@ -2,6 +2,8 @@
 #include "gen_coef.h"
 #include "common.h"
 
+#include <chrono> 
+
 int evaluatePolynomial_int(const std::vector<int>& coefficients, int secret, int x, int mod) {
     int y = secret; // Constant term is the secret
     int powerOfX = 1; // x^0 = 1
@@ -20,6 +22,9 @@ std::vector<SHARE_INT> generateShares_int(int secret, int n, int t, int mod) {
     // Generate random coefficients for the polynomial
     auto coefficients = generateCoefficients_int(t - 1, mod);
 
+    // Record start time
+    auto start = std::chrono::high_resolution_clock::now();
+
     // Generate n shares
     std::vector<SHARE_INT> shares;
     for (int i = 1; i <= n; ++i) {
@@ -27,6 +32,13 @@ std::vector<SHARE_INT> generateShares_int(int secret, int n, int t, int mod) {
         int y = evaluatePolynomial_int(coefficients, secret, x, mod); // Evaluate polynomial at x
         shares.push_back({x,y}); // Add share
     }
+
+    // Record end time
+    auto end = std::chrono::high_resolution_clock::now();
+
+    // Estimate process time
+    std::chrono::duration<double, std::milli> duration = end - start;
+    std::cout << "[generateShares_int] " << duration.count() << " ms" << std::endl;
 
     return shares;
 }
@@ -50,6 +62,7 @@ std::vector<SHARE_LONG> generateShares_long(unsigned long long privateKey, int n
 
     // Generate shares
     std::vector<SHARE_LONG> shares;
+    auto start = std::chrono::high_resolution_clock::now();
     for (int i = 1; i <= n; ++i) {
         unsigned long long x = i; // Set x = i
 
@@ -59,6 +72,9 @@ std::vector<SHARE_LONG> generateShares_long(unsigned long long privateKey, int n
         // Store the share (private key share and public key)
         shares.push_back({ x, y });
     }
+    auto end = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double, std::milli> duration = end - start;
+    std::cout << "[generateShares_long] " << duration.count() << " ms" << std::endl;
 
     return shares;
 }
@@ -106,6 +122,7 @@ std::vector<SHARE_BIGNUM> generateShares_BIGNUM(const BIGNUM* privateKey, int n,
 
     // Generate shares
     std::vector<SHARE_BIGNUM> shares;
+    auto start = std::chrono::high_resolution_clock::now();
     for (int i = 1; i <= n; ++i) {
         BIGNUM* x = BN_new();
         BN_set_word(x, i); // Set x = i
@@ -116,6 +133,9 @@ std::vector<SHARE_BIGNUM> generateShares_BIGNUM(const BIGNUM* privateKey, int n,
         // Store the share (private key share and public key)
         shares.push_back({ x, y });
     }
+    auto end = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double, std::milli> duration = end - start;
+    std::cout << "[generateShares_BIGNUM] " << duration.count() << " ms" << std::endl;
 
     // Free polynomial coefficients
     for (BIGNUM* coeff : coefficients) {

@@ -1,3 +1,6 @@
+#include <cuda_runtime.h>
+#include <device_launch_parameters.h>
+
 #include "recon_key_cuda.h"
 
 __global__ void lagrangeInterpolationKernel_int(int* xs, int* ys, int* results, int numShares, int mod) {
@@ -53,10 +56,31 @@ int reconstructKey_int_CUDA(const std::vector<SHARE_INT>& shares, int mod) {
     cudaMemcpy(d_xs, xs.data(), numShares * sizeof(int), cudaMemcpyHostToDevice);
     cudaMemcpy(d_ys, ys.data(), numShares * sizeof(int), cudaMemcpyHostToDevice);
 
+    // Start timing using CUDA events
+    cudaEvent_t start, stop;
+    cudaEventCreate(&start);
+    cudaEventCreate(&stop);
+
     // Configure and launch the kernel
     int blockSize = 256;
     int gridSize = (numShares + blockSize - 1) / blockSize;
+    cudaEventRecord(start);
     lagrangeInterpolationKernel_int << <gridSize, blockSize >> > (d_xs, d_ys, d_results, numShares, mod);
+    cudaEventRecord(stop);
+
+    // Wait for the GPU to finish
+    cudaEventSynchronize(stop);
+
+    // Calculate the elapsed time
+    float milliseconds = 0;
+    cudaEventElapsedTime(&milliseconds, start, stop);
+
+    // Print the timing result
+    std::cout << "[reconstructKey_int_CUDA] " << milliseconds << " ms" << std::endl;
+
+    // Destroy CUDA events
+    cudaEventDestroy(start);
+    cudaEventDestroy(stop);
 
     // Copy results back to the host
     std::vector<int> results(numShares);
@@ -167,9 +191,31 @@ unsigned long long reconstructKey_long_CUDA(const std::vector<SHARE_LONG>& share
     cudaMemcpy(d_xs, h_xs, numShares * sizeof(unsigned long long), cudaMemcpyHostToDevice);
     cudaMemcpy(d_ys, h_ys, numShares * sizeof(unsigned long long), cudaMemcpyHostToDevice);
 
+
+    // Start timing using CUDA events
+    cudaEvent_t start, stop;
+    cudaEventCreate(&start);
+    cudaEventCreate(&stop);
+
     int blockSize = 256;
     int gridSize = (numShares + blockSize - 1) / blockSize;
+    cudaEventRecord(start);
     lagrangeInterpolationKernel_long << <gridSize, blockSize >> > (numShares, d_xs, d_ys, d_results, order);
+    cudaEventRecord(stop);
+
+    // Wait for the GPU to finish
+    cudaEventSynchronize(stop);
+
+    // Calculate the elapsed time
+    float milliseconds = 0;
+    cudaEventElapsedTime(&milliseconds, start, stop);
+
+    // Print the timing result
+    std::cout << "[reconstructKey_int_CUDA] " << milliseconds << " ms" << std::endl;
+
+    // Destroy CUDA events
+    cudaEventDestroy(start);
+    cudaEventDestroy(stop);
 
     cudaMemcpy(h_results, d_results, numShares * sizeof(unsigned long long), cudaMemcpyDeviceToHost);
 
@@ -209,9 +255,31 @@ BIGNUM* reconstructKey_BIGNUM_CUDA(const std::vector<SHARE_BIGNUM>& shares, cons
     cudaMemcpy(d_xs, h_xs, numShares * sizeof(unsigned long long), cudaMemcpyHostToDevice);
     cudaMemcpy(d_ys, h_ys, numShares * sizeof(unsigned long long), cudaMemcpyHostToDevice);
 
+
+    // Start timing using CUDA events
+    cudaEvent_t start, stop;
+    cudaEventCreate(&start);
+    cudaEventCreate(&stop);
+
     int blockSize = 256;
     int gridSize = (numShares + blockSize - 1) / blockSize;
+    cudaEventRecord(start);
     lagrangeInterpolationKernel_long << <gridSize, blockSize >> > (numShares, d_xs, d_ys, d_results, BN_get_word(mod));
+    cudaEventRecord(stop);
+
+    // Wait for the GPU to finish
+    cudaEventSynchronize(stop);
+
+    // Calculate the elapsed time
+    float milliseconds = 0;
+    cudaEventElapsedTime(&milliseconds, start, stop);
+
+    // Print the timing result
+    std::cout << "[reconstructKey_int_CUDA] " << milliseconds << " ms" << std::endl;
+
+    // Destroy CUDA events
+    cudaEventDestroy(start);
+    cudaEventDestroy(stop);
 
     cudaMemcpy(h_results, d_results, numShares * sizeof(unsigned long long), cudaMemcpyDeviceToHost);
 

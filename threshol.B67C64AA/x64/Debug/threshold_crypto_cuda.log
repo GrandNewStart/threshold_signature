@@ -68,9 +68,10 @@ C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.6\include\cuda_runtime_ap
 C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.6\include\cuda_runtime_api.h(12392): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
 C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.6\include\cuda_runtime_api.h(12392): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
   kernel.cu
-  tmpxft_00005790_00000000-7_kernel.cudafe1.cpp
+  tmpxft_00005430_00000000-7_kernel.cudafe1.cpp
 C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.6\include\driver_types.h(1334): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
 C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.6\include\driver_types.h(1334): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
 C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.6\include\driver_types.h(1334): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-  recon_key.cpp
+     C:\Users\jinwo\Documents\Visual Studio 2022\threshold_crypto_cuda\x64\Debug\threshold_crypto_cuda.lib 라이브러리 및 C:\Users\jinwo\Documents\Visual Studio 2022\threshold_crypto_cuda\x64\Debug\threshold_crypto_cuda.exp 개체를 생성하고 있습니다.
+LINK : warning LNK4098: 'LIBCMT' defaultlib가 다른 라이브러리와 충돌합니다. /NODEFAULTLIB:library를 사용하십시오.
   threshold_crypto_cuda.vcxproj -> C:\Users\jinwo\Documents\Visual Studio 2022\threshold_crypto_cuda\x64\Debug\threshold_crypto_cuda.exe

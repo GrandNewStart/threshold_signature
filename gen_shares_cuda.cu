@@ -58,10 +58,31 @@ std::vector<SHARE_INT> generateShares_int_CUDA(int secret, int n, int t, int mod
     // Copy x-coordinates to the device
     cudaMemcpy(d_xs, xs.data(), n * sizeof(int), cudaMemcpyHostToDevice);
 
+    // Start timing using CUDA events
+    cudaEvent_t start, stop;
+    cudaEventCreate(&start);
+    cudaEventCreate(&stop);
+
     // Configure and launch the kernel
     int blockSize = 256;
     int gridSize = (n + blockSize - 1) / blockSize;
+    cudaEventRecord(start);
     evaluatePolynomial_int_CUDA << <gridSize, blockSize >> > (d_coefficients, secret, d_xs, d_ys, t - 1, mod, n);
+    cudaEventRecord(stop);
+
+    // Wait for the GPU to finish
+    cudaEventSynchronize(stop);
+
+    // Calculate the elapsed time
+    float milliseconds = 0;
+    cudaEventElapsedTime(&milliseconds, start, stop);
+
+    // Print the timing result
+    std::cout << "[generateShares_int_CUDA] " << milliseconds << " ms" << std::endl;
+
+    // Destroy CUDA events
+    cudaEventDestroy(start);
+    cudaEventDestroy(stop);
 
     // Copy results back to the host
     std::vector<int> ys(n);
@@ -131,10 +152,31 @@ std::vector<SHARE_LONG> generateShares_long_CUDA(unsigned long long privateKey, 
     }
     cudaMemcpy(d_xs, h_xs, n * sizeof(unsigned long long), cudaMemcpyHostToDevice);
 
+    // Start timing using CUDA events
+    cudaEvent_t start, stop;
+    cudaEventCreate(&start);
+    cudaEventCreate(&stop);
+
     // Launch kernel to evaluate polynomial
     int blockSize = 256;
     int gridSize = (n + blockSize - 1) / blockSize;
+    cudaEventRecord(start);
     evaluatePolynomial_long_CUDA << <gridSize, blockSize >> > (n, t, d_coefficients, d_xs, d_ys, order);
+    cudaEventRecord(stop);
+
+    // Wait for the GPU to finish
+    cudaEventSynchronize(stop);
+
+    // Calculate the elapsed time
+    float milliseconds = 0;
+    cudaEventElapsedTime(&milliseconds, start, stop);
+
+    // Print the timing result
+    std::cout << "[generateShares_long_CUDA] " << milliseconds << " ms" << std::endl;
+
+    // Destroy CUDA events
+    cudaEventDestroy(start);
+    cudaEventDestroy(stop);
 
     cudaError_t err = cudaGetLastError();
     if (err != cudaSuccess) {
@@ -188,10 +230,31 @@ std::vector<SHARE_BIGNUM> generateShares_BIGNUM_CUDA(const BIGNUM* privateKey, i
     }
     cudaMemcpy(d_xs, h_xs, n * sizeof(unsigned long long), cudaMemcpyHostToDevice);
 
+    // Start timing using CUDA events
+    cudaEvent_t start, stop;
+    cudaEventCreate(&start);
+    cudaEventCreate(&stop);
+
     // Launch kernel to evaluate polynomial
     int blockSize = 256;
     int gridSize = (n + blockSize - 1) / blockSize;
+    cudaEventRecord(start);
     evaluatePolynomial_long_CUDA << <gridSize, blockSize >> > (n, t, d_coefficients, d_xs, d_ys, BN_get_word(mod));
+    cudaEventRecord(stop);
+
+    // Wait for the GPU to finish
+    cudaEventSynchronize(stop);
+
+    // Calculate the elapsed time
+    float milliseconds = 0;
+    cudaEventElapsedTime(&milliseconds, start, stop);
+
+    // Print the timing result
+    std::cout << "[generateShares_BIGNUM_CUDA] " << milliseconds << " ms" << std::endl;
+
+    // Destroy CUDA events
+    cudaEventDestroy(start);
+    cudaEventDestroy(stop);
 
     cudaError_t err = cudaGetLastError();
     if (err != cudaSuccess) {
